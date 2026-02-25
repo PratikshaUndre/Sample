@@ -1,26 +1,18 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- main
-
-pool:
-  vmImage: ubuntu-latest
-
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '20.x'
+    versionSpec: '20.17.0'
+    # You can also change 'lts' to any supported LTS Node.js version.
   displayName: 'Install Node.js'
 
 - script: |
     npm install -g @testim/testim-cli
     testim \
-    --token "sKZGYsrfdlEJUMrlP7KifXxApGvhpeOFF4v9JfGbwaTPUtg3dZ" \
-    --project "CeWC3NVxWznni6wW9mpS" \
-    --grid "Testim-Grid" \
+    --token "FbRwDodQGe0fmK7kfbySfQkH4hcGCY3OXQSEhkHvo44HRGV1DL" \
+    --project "5o34e3giDMkFw4u6R2Ef" \
+    --grid "testim-ha-grid" \
+    --branch "Prtaiksha Undre" \
+    --label "Azure" \
     --report-file testim-tests-report.xml
   displayName: 'npm install testim-cli and run tests'
 
